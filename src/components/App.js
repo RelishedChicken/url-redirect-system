@@ -38,13 +38,13 @@ class App extends React.Component{
                 <div>
                     <Router>
                         <Switch>
-                            <Route basename="/url-redirect-system/" exact path="/" >
+                            <Route basename="/url-redirect-system/#/" exact path="/" >
                                 <Instructions />
                             </Route>
-                            <Route basename="/url-redirect-system/" path="/redirect" >
+                            <Route basename="/url-redirect-system/#/" path="/redirect" >
                                 <Redirector currentUrls={this.state.urls}/>
                             </Route>
-                            <Route basename="/url-redirect-system/" path="/edit" >
+                            <Route basename="/url-redirect-system/#/" path="/edit" >
                                 <Edit addUrl={this.addURL}/>
                             </Route>
                         </Switch>
