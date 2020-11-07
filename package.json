@@ -2,7 +2,7 @@
   "name": "url-redirect-system",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://relishedchicken.github.io/url-redirect-system",
+  "homepage": "https://relishedchicken.github.io/url-redirect-system/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",

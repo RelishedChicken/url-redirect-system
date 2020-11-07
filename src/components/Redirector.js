@@ -9,6 +9,7 @@ class Redirector extends React.Component{
 
     parse(){
         var usersChosenUUID = window.location.href.substring(window.location.href.lastIndexOf("/")+1,window.location.href.length);
+        console.log(usersChosenUUID);
         var usersURL;
         this.props.currentUrls.forEach(url => {
             if(url.url_uuid === usersChosenUUID){
@@ -22,7 +23,7 @@ class Redirector extends React.Component{
             urlToUse: usersURL,
             readyToGo: true
         })
-        
+        console.log(usersURL);
         
     }
 

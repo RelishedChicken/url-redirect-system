@@ -41,10 +41,10 @@ class App extends React.Component{
                             <Route basename="/url-redirect-system/" exact path="/" >
                                 <Instructions />
                             </Route>
-                            <Route basename="/url-redirect-system/" exact path="/redirect" >
+                            <Route basename="/url-redirect-system/" path="/redirect" >
                                 <Redirector currentUrls={this.state.urls}/>
                             </Route>
-                            <Route path="/edit" >
+                            <Route basename="/url-redirect-system/" path="/edit" >
                                 <Edit addUrl={this.addURL}/>
                             </Route>
                         </Switch>
