@@ -28,11 +28,12 @@ class App extends React.Component{
     }
 
     addURL(formData){
+        formData.preventDefault();
         console.log(formData);
         var uuid = formData.target[0].value;
         var urlDest = formData.target[1].value;
         fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/updateUrl.php?uuid="+uuid+"&url="+urlDest);
-        window.location.href = "/#/"
+        window.location.href = "/url-redirect-system/#/";
     }
 
     render(){

@@ -1,5 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class Edit extends React.Component{
 
@@ -21,6 +22,7 @@ class Edit extends React.Component{
                 <div>
                     <h1>Edit Links</h1>
                     <h4>Destination set to: {this.state.url}</h4>
+                    <h4>Full Link: {"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}</h4>
                     <form onSubmit={this.props.addUrl}>
                         <label>
                             <b>URL ID:</b>{" "}
@@ -32,9 +34,9 @@ class Edit extends React.Component{
                             <input type="text" name="url" value={this.state.url} onChange={this.update}></input>
                         </label>
                         <br />
-                        <h3>COPY THIS: {"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}</h3>
-                        <br />
-                        <input type="submit" value="Create!"></input>
+                        <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
+                            <button>COPY URL TO CLIPBOARD</button>
+                        </CopyToClipboard>
                     </form>
                 </div>
             )
