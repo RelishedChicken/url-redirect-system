@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/url-redirect-system/static/js/main.75b03388.chunk.js",
-    "main.js.map": "/url-redirect-system/static/js/main.75b03388.chunk.js.map",
+    "main.js": "/url-redirect-system/static/js/main.1c5ee0db.chunk.js",
+    "main.js.map": "/url-redirect-system/static/js/main.1c5ee0db.chunk.js.map",
     "runtime-main.js": "/url-redirect-system/static/js/runtime-main.a645d7d4.js",
     "runtime-main.js.map": "/url-redirect-system/static/js/runtime-main.a645d7d4.js.map",
-    "static/js/2.079f5b70.chunk.js": "/url-redirect-system/static/js/2.079f5b70.chunk.js",
-    "static/js/2.079f5b70.chunk.js.map": "/url-redirect-system/static/js/2.079f5b70.chunk.js.map",
+    "static/js/2.bcfac86d.chunk.js": "/url-redirect-system/static/js/2.bcfac86d.chunk.js",
+    "static/js/2.bcfac86d.chunk.js.map": "/url-redirect-system/static/js/2.bcfac86d.chunk.js.map",
     "index.html": "/url-redirect-system/index.html",
-    "static/js/2.079f5b70.chunk.js.LICENSE.txt": "/url-redirect-system/static/js/2.079f5b70.chunk.js.LICENSE.txt"
+    "static/js/2.bcfac86d.chunk.js.LICENSE.txt": "/url-redirect-system/static/js/2.bcfac86d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a645d7d4.js",
-    "static/js/2.079f5b70.chunk.js",
-    "static/js/main.75b03388.chunk.js"
+    "static/js/2.bcfac86d.chunk.js",
+    "static/js/main.1c5ee0db.chunk.js"
   ]
 }
