@@ -25,7 +25,6 @@ class App extends React.Component{
     }
 
     addURL(formData){
-        formData.preventDefault();
         console.log(formData);
         var uuid = formData.target[0].value;
         var urlDest = formData.target[1].value;
