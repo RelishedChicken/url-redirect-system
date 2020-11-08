@@ -34,6 +34,7 @@ class App extends React.Component{
             return(
                 <div>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
+                    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"></link>
                     <h1 className="title">Simple Persistant URL Redirector</h1>
                     <Router>
                         <div className="menuContainer">
