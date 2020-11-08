@@ -5,7 +5,7 @@ class Instructions extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="content">
                 <h2 className="pageTitle">Usage</h2>
                 <h3 className="subTitle">Editing a Link</h3>
                 <p>To edit a link, go <b><Link to="/edit/">here</Link></b>.</p>

@@ -53,7 +53,7 @@ class Edit extends React.Component{
                     <h2 className="pageTitle">Thanks! Your link has been created and is as follows:</h2>
                     <p className="pageInstructions">UUID: {this.state.id}</p>
                     <p className="pageInstructions">URL: {this.state.url}</p>
-                    <p className="pageInstructions">Hint: Your link has already been copied to your clipboard</p>
+                    <p className="pageInstructions">Hint: Your redirect link has already been copied to your clipboard</p>
                 </>
             )
         }
