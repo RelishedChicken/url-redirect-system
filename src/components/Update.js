@@ -16,37 +16,42 @@ class Edit extends React.Component{
         })
     }
 
+    formSubmitted = (e) =>{
+        this.setState({
+            submitted: true
+        })
+    }
+
     render(){
         if(!this.state.submitted){
             return(
                 <div>
-                    <h1 className="pageTitle">Update a Link</h1>
-                    <h4 className="pageDetail">Destination set to: {this.state.url}</h4>
-                    <h4 className="pageDetail">Full Link Being Updated: {"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}</h4>
-                    <form className="formParent" onSubmit={this.props.updateUrl}>
-                        <label className="formLabel">
-                            <b>UUID of URL to Update:</b>{" "}
-                            <input type="text" name="id" value={this.state.id} onChange={this.update}></input>
-                        </label>
-                        <br />
-                        <label className="formLabel">
-                            <b>New URL Destination:</b>{" "}
-                            <input type="text" name="url" value={this.state.url} onChange={this.update}></input>
-                        </label>
-                        <br />
-                        <br />
-                        <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
-                            <button className="submitButton">COPY URL TO CLIPBOARD {"&"} UPDATE</button>
-                        </CopyToClipboard>
-                    </form>
+                    <h2 className="pageTitle">Update an Exiting Link</h2>
+                    <p className="pageInstructions">Paste your old link below and a new destination.</p>
+                    <div className="formSpacer">&nbsp;</div>
+                    <div className="formParent">
+                        <form onSubmit={this.props.updateUrl}>
+                            <label className="formLabel"><b>URL ID: {" "}</b></label>
+                            <input className="inputField" type="text" name="id" value={this.state.id} onChange={this.update}></input>
+                            <br />
+                            <label className="formLabel"><b>URL Destination:</b>{" "}</label>
+                            <input className="inputField"  type="text" name="url" value={this.state.url} onChange={this.update}></input>
+                            <br />
+                            <br />
+                            <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
+                                <button onClick={this.formSubmitted} className="submitButton">Update {"&"} Copy to Clipboard</button>
+                            </CopyToClipboard>
+                        </form>
+                    </div>
+                    <div className="formSpacer">&nbsp;</div>
                 </div>
             )
         }else{
             return(
                 <>
-                    <h1>Thanks! Your link is as follows</h1>
-                    <h2>UUID: {this.state.createdLinkUUID}</h2>
-                    <h2>URL: {this.state.createdLinkURL}</h2>
+                    <h2 className="pageTitle">Thanks! Your link has been updated and is as follows:</h2>
+                    <p className="pageInstructions">UUID: {this.state.id}</p>
+                    <p className="pageInstructions">URL: {this.state.url}</p>
                 </>
             )
         }
