@@ -39,8 +39,7 @@ class Edit extends React.Component{
                     <div className="formParent">
                         <form onSubmit={this.props.addUrl}>
                             <label className="formLabel"><b>URL ID: {" "}</b></label>
-                            {this.state.id}{" "}
-                            <input className="inputField" type="text" name="id" hidden value={this.state.id} readOnly></input>
+                            <input className="inputField" type="text" name="id" value={this.state.id} readOnly></input>
                             <br />
                             <label className="formLabel"><b>URL Destination:</b>{" "}</label>
                             <input className="inputField"  type="text" name="url" value={this.state.url} onChange={this.update}></input>

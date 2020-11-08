@@ -41,7 +41,7 @@ class Edit extends React.Component{
                     <div className="formSpacer">&nbsp;</div>
                     <div className="formParent">
                         <form onSubmit={this.props.updateUrl}>
-                            <label className="formLabel"><b>URL ID: {" "}</b></label>
+                            <label className="formLabel"><b>Old URL: {" "}</b></label>
                             <input className="inputField" type="text" name="id" value={this.state.id} onChange={this.update}></input>
                             <br />
                             <label className="formLabel"><b>URL Destination:</b>{" "}</label>
