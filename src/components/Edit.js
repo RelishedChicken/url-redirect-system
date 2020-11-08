@@ -7,7 +7,7 @@ class Edit extends React.Component{
     state = {
         id: uuidv4(),
         url: "",
-        submitted: false
+        submitted: false,
     }
 
     update = (e) => {
@@ -20,13 +20,11 @@ class Edit extends React.Component{
         if(!this.state.submitted){
             return(
                 <div>
-                    <h1 className="pageTitle">Create a Link</h1>
-                    <h4 className="pageDetail">Full Link: {"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}</h4>
-                    <h4 className="pageDetail">Destination set to: {this.state.url}</h4>
+                    <h2 className="pageTitle">Create a Link</h2>
                     <form className="formParent" onSubmit={this.props.addUrl}>
                         <label className="formLabel">
-                            <b>URL ID:</b>{" "}
-                            <input type="text" name="id" value={this.state.id} readOnly></input>
+                            <b>URL ID: {this.state.id}</b>{" "}
+                            <input type="text" name="id" hidden value={this.state.id} readOnly></input>
                         </label>
                         <br />
                         <label className="formLabel">
@@ -34,8 +32,9 @@ class Edit extends React.Component{
                             <input type="text" name="url" value={this.state.url} onChange={this.update}></input>
                         </label>
                         <br />
+                        <br />
                         <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
-                            <button>COPY URL TO CLIPBOARD</button>
+                            <button className="submitButton">COPY URL TO CLIPBOARD</button>
                         </CopyToClipboard>
                     </form>
                 </div>

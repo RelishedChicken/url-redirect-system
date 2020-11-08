@@ -34,8 +34,9 @@ class Edit extends React.Component{
                             <input type="text" name="url" value={this.state.url} onChange={this.update}></input>
                         </label>
                         <br />
+                        <br />
                         <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
-                            <button>COPY URL TO CLIPBOARD {"&"} UPDATE</button>
+                            <button className="submitButton">COPY URL TO CLIPBOARD {"&"} UPDATE</button>
                         </CopyToClipboard>
                     </form>
                 </div>

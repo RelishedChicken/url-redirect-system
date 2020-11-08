@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route} from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Instructions from "./Instructions";
 import Redirector from "./Redirector";
 import Edit from "./Edit";
@@ -43,14 +43,19 @@ class App extends React.Component{
         console.log(formData);
         var uuid = formData.target[0].value;
         var urlDest = formData.target[1].value;
-        fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/updateUrl.php?uuid="+uuid+"&url="+urlDest);
-        window.location.href = "/url-redirect-system/#/";
+        if(urlDest !== ""){
+            fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/updateUrl.php?uuid="+uuid+"&url="+urlDest);
+            window.location.href = "/url-redirect-system/#/";
+        }else{
+            window.location.href = "/url-redirect-system/#/error";
+        }        
     }
 
     render(){
         if(this.state.loadedURLs){
             return(
                 <div>
+                    <h1>Simple Persistant URL Redirector</h1>
                     <Router>
                         <Switch>
                             <Route basename="/url-redirect-system/#/" exact path="/" >
@@ -65,6 +70,9 @@ class App extends React.Component{
                             <Route basename="/url-redirect-system/#/" path="/update" >
                                 <Update updateUrl={this.updateURL}/>
                             </Route>
+                            <Route basename="/url-redirect-system/#/" path="/error" >
+                                <h3>The URL entered was not complete or correct. Please try again: <Link to="/edit/" /></h3>
+                            </Route>
                         </Switch>
                     </Router>
                 </div>
@@ -72,10 +80,13 @@ class App extends React.Component{
         }else{
             this.getURLData();
             return(
-                <div>
-                    <h1>Please Wait</h1>
-                    <h3>Loading latest data...</h3>
-                </div>
+                <>
+                    <h1>Simple Persistant URL Redirector</h1>
+                    <div>
+                        <h2>Please Wait</h2>
+                        <h4>Loading latest data...</h4>
+                    </div>
+                </>
             )
         }
     }
