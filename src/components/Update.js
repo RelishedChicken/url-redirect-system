@@ -5,7 +5,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 class Edit extends React.Component{
 
     state = {
-        id: uuidv4(),
+        id: "",
         url: "",
         submitted: false
     }
@@ -20,22 +20,22 @@ class Edit extends React.Component{
         if(!this.state.submitted){
             return(
                 <div>
-                    <h1 className="pageTitle">Create a Link</h1>
-                    <h4 className="pageDetail">Full Link: {"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}</h4>
+                    <h1 className="pageTitle">Update a Link</h1>
                     <h4 className="pageDetail">Destination set to: {this.state.url}</h4>
-                    <form className="formParent" onSubmit={this.props.addUrl}>
+                    <h4 className="pageDetail">Full Link Being Updated: {"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}</h4>
+                    <form className="formParent" onSubmit={this.props.updateUrl}>
                         <label className="formLabel">
-                            <b>URL ID:</b>{" "}
-                            <input type="text" name="id" value={this.state.id} readOnly></input>
+                            <b>UUID of URL to Update:</b>{" "}
+                            <input type="text" name="id" value={this.state.id} onChange={this.update}></input>
                         </label>
                         <br />
                         <label className="formLabel">
-                            <b>URL Destination:</b>{" "}
+                            <b>New URL Destination:</b>{" "}
                             <input type="text" name="url" value={this.state.url} onChange={this.update}></input>
                         </label>
                         <br />
                         <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
-                            <button>COPY URL TO CLIPBOARD</button>
+                            <button>COPY URL TO CLIPBOARD {"&"} UPDATE</button>
                         </CopyToClipboard>
                     </form>
                 </div>
