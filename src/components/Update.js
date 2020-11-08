@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4, validate as uuidv4Valid } from "uuid";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { act } from "react-dom/test-utils";
 
 class Edit extends React.Component{
 
@@ -24,6 +25,8 @@ class Edit extends React.Component{
         var urlFront = oldURL.substring(0,oldURL.lastIndexOf("/"));
         var actUUID = oldURL.substring(oldURL.lastIndexOf("/")+1, oldURL.length);
         console.log(urlFront);
+        console.log(actUUID, uuidv4Valid(actUUID));
+        console.log("http: "+urlFront.includes("http"));
         if(urlFront === "https://relishedchicken.github.io/url-redirect-system/#/redirect" && oldURL.includes("http") && uuidv4Valid(actUUID)){
             this.setState({
                 urlValid: false
