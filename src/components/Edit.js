@@ -17,9 +17,16 @@ class Edit extends React.Component{
     }
 
     formSubmitted = (e) =>{
+        e.preventDefault();
         this.setState({
             submitted: true
-        })
+        });
+        console.log(e);
+        var uuid = this.state.id;
+        var urlDest = this.state.url;
+        console.log("UUID: "+uuid);
+        console.log("URL Dest: "+urlDest);
+        fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/addUrl.php?uuid="+uuid+"&url="+urlDest);
     }
 
     render(){

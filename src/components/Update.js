@@ -17,9 +17,19 @@ class Edit extends React.Component{
     }
 
     formSubmitted = (e) =>{
+        e.preventDefault();
         this.setState({
             submitted: true
-        })
+        });
+        var urlDest = this.state.url;
+        if(urlDest.inludes("http")){
+            urlDest = urlDest.substring(urlDest.lastIndexOf("/"),urlDest.length);
+        }
+        var uuid = this.state.id;
+        uuid = uuid.substring(uuid.lastIndexOf("/")+1,uuid.length);
+        if(urlDest !== ""){
+            fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/updateUrl.php?uuid="+uuid+"&url="+urlDest);
+        } 
     }
 
     render(){

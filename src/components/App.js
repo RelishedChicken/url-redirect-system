@@ -29,28 +29,6 @@ class App extends React.Component{
         
     }
 
-    addURL(formData){
-        formData.preventDefault();
-        console.log(formData);
-        var uuid = formData.target[0].value;
-        var urlDest = formData.target[1].value;
-        fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/addUrl.php?uuid="+uuid+"&url="+urlDest);
-    }
-
-    updateURL(formData){
-        formData.preventDefault();
-        console.log(formData);
-        var urlDest = formData.target[1].value;
-        if(urlDest.inludes("http")){
-            urlDest = urlDest.substring(urlDest.lastIndexOf("/"),urlDest.length);
-        }
-        var uuid = formData.target[0].value;
-        uuid = uuid.substring(uuid.lastIndexOf("/")+1,uuid.length);
-        if(urlDest !== ""){
-            fetch("https://cors-anywhere.herokuapp.com/http://kunet.kingston.ac.uk/k1625608/updateUrls/updateUrl.php?uuid="+uuid+"&url="+urlDest);
-        }     
-    }
-
     render(){
         if(this.state.loadedURLs){
             return(
