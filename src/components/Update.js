@@ -1,5 +1,5 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4, validate as uuidv4Valid } from "uuid";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class Edit extends React.Component{
@@ -7,13 +7,32 @@ class Edit extends React.Component{
     state = {
         id: "",
         url: "",
-        submitted: false
+        submitted: false,
+        urlValid: true
     }
 
     update = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
-        })
+        }, this.validateUUID);
+        
+    }
+
+    validateUUID(){
+        var oldURL = this.state.id;
+        console.log(oldURL);
+        var urlFront = oldURL.substring(0,oldURL.lastIndexOf("/"));
+        var actUUID = oldURL.substring(oldURL.lastIndexOf("/")+1, oldURL.length);
+        console.log(urlFront);
+        if(urlFront === "https://relishedchicken.github.io/url-redirect-system/#/redirect" && oldURL.includes("http") && uuidv4Valid(actUUID)){
+            this.setState({
+                urlValid: false
+            })
+        }else{
+            this.setState({
+                urlValid: true
+            })
+        }
     }
 
     formSubmitted = (e) =>{
@@ -22,8 +41,9 @@ class Edit extends React.Component{
             submitted: true
         });
         var urlDest = this.state.url;
-        if(urlDest.inludes("http")){
-            urlDest = urlDest.substring(urlDest.lastIndexOf("/"),urlDest.length);
+        console.log(urlDest);
+        if(!urlDest.includes("http")){
+            urlDest = "http://" + urlDest;
         }
         var uuid = this.state.id;
         uuid = uuid.substring(uuid.lastIndexOf("/")+1,uuid.length);
@@ -48,8 +68,9 @@ class Edit extends React.Component{
                             <input className="inputField"  type="text" name="url" value={this.state.url} onChange={this.update}></input>
                             <br />
                             <br />
+                            <p hidden={!this.state.urlValid} className="pageInstructions" style={{color: "red"}}>Please make sure your Old URL is valid.</p>
                             <CopyToClipboard text={"https://relishedchicken.github.io/url-redirect-system/#/redirect/"+this.state.id}>
-                                <button onClick={this.formSubmitted} className="submitButton">Update {"&"} Copy to Clipboard</button>
+                                <button onClick={this.formSubmitted} className="submitButton" disabled={this.state.urlValid} >Update {"&"} Copy to Clipboard</button>
                             </CopyToClipboard>
                         </form>
                     </div>
