@@ -57,7 +57,7 @@ class Edit extends React.Component{
             return(
                 <>
                     <h2 className="pageTitle">Thanks! Your link has been created and is as follows:</h2>
-                    <p className="pageInstructions">UUID: {this.state.id}</p>
+                    <p className="pageInstructions">UUID: {this.state.id.substring(this.state.id.lastIndexOf("/")+1, this.state.id.length)}</p>
                     <p className="pageInstructions">URL: {this.state.url}</p>
                     <p className="pageInstructions">Hint: Your redirect link has already been copied to your clipboard</p>
                 </>
