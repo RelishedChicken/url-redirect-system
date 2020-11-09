@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-class Edit extends React.Component{
+class Create extends React.Component{
 
     state = {
         id: uuidv4(),
@@ -67,4 +67,4 @@ class Edit extends React.Component{
 
 }
 
-export default Edit;
+export default Create;
