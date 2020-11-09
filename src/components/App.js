@@ -39,7 +39,7 @@ class App extends React.Component{
                     <Router>
                         <div className="menuContainer">
                             <div className="menuBar">
-                                <Link to="/"><div className="link">Home</div></Link>
+                                <Link to="/#/"><div className="link">Home</div></Link>
                                 <Link to="/create/"><div className="link">Create Link</div></Link>
                                 <Link to="/update/"><div className="link">Update Link</div></Link>
                             </div>
